@@ -81,22 +81,22 @@ const NotesComponent = () => {
       console.log(error);
     }
   };
-  const EditArchiveNote = async ({ archiveNote, setarchiveNote }) => {
+  const editNotePut = async () => {
+    console.log(editNote);
     try {
-      const { data } = await axios.post(
-        `https://notehud.somee.com/api/Notes/${archiveNote.id}`,
+      const { data } = await axios.put(
+        `https://notehud.somee.com/api/Notes/${editNote.id}`,
+        {
+          title: editNote.title,
+          message: editNote.message,
+          categoryId: editNote.categoryId,
+        },
         {
           headers: {
             Authorization: `Bearer ${session.user.token}`,
           },
         }
       );
-      setarchiveNote({
-        id: "",
-        title: "",
-        message: "",
-        category: "",
-      });
       getNotes();
     } catch (error) {
       console.log(error);
@@ -317,7 +317,11 @@ const NotesComponent = () => {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
+                <Button
+                  onClick={() => editNotePut()}
+                  color="primary"
+                  onPress={onClose}
+                >
                   Action
                 </Button>
               </ModalFooter>
