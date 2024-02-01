@@ -38,7 +38,7 @@ const ModalCreateCategory = ({
   const postNewCategory = async () => {
     try {
       const { data } = await axios.post(
-        "https://localhost:7014/api/Category",
+        "https://notehud.somee.com/api/Category",
         {
           name: createCategory.name,
         },

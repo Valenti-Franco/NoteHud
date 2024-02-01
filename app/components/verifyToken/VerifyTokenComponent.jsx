@@ -14,7 +14,7 @@ const VerifyTokenComponent = () => {
   const fetchData = async () => {
     try {
       const data = await axios.post(
-        `https://localhost:7014/api/Usuarios/VerificarEmail?token=${token.id}`,
+        `https://notehud.somee.com/api/Usuarios/VerificarEmail?token=${token.id}`,
         {}
       );
 

@@ -41,11 +41,14 @@ const CategorySelect = () => {
 
   const getCategories = async () => {
     try {
-      const { data } = await axios.get("https://localhost:7014/api/Category", {
-        headers: {
-          Authorization: `Bearer ${session.user.token}`,
-        },
-      });
+      const { data } = await axios.get(
+        "https://notehud.somee.com/api/Category",
+        {
+          headers: {
+            Authorization: `Bearer ${session.user.token}`,
+          },
+        }
+      );
       setCategories(data);
     } catch (error) {
       console.log(error);

@@ -37,7 +37,7 @@ const ModalCreate = ({
   const postNewNote = async () => {
     try {
       const { data } = await axios.post(
-        "https://localhost:7014/api/Notes",
+        "https://notehud.somee.com/api/Notes",
         {
           title: createNote.title,
           message: createNote.message,

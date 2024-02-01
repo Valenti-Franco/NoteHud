@@ -80,7 +80,7 @@ const FormSingIn = ({ theme }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "https://localhost:7014/api/Usuarios/Register",
+        "https://notehud.somee.com/api/Usuarios/Register",
         {
           nombre: name,
           email: email,
@@ -164,7 +164,7 @@ const FormSingIn = ({ theme }) => {
               {(form) => (
                 <Form
                   method="post"
-                  action="https://localhost:7014/api/Usuarios/authenticate"
+                  action="https://notehud.somee.com/api/Usuarios/authenticate"
                 >
                   <input
                     type="hidden"

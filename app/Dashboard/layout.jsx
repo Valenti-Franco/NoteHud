@@ -31,7 +31,7 @@ const layout = async ({ children }) => {
             // })
             // console.log("credentials", credentials)
             const res = await axios.post(
-              "https://localhost:7014/api/Usuarios/authenticate",
+              "https://notehud.somee.com/api/Usuarios/authenticate",
               {
                 nombre: credentials.email,
                 password: credentials.password,
@@ -42,7 +42,7 @@ const layout = async ({ children }) => {
               }
             );
             const res2 = await axios(
-              "https://localhost:7014/api/Usuarios/ObtenerUsuario",
+              "https://notehud.somee.com/api/Usuarios/ObtenerUsuario",
               {
                 httpsAgent: new https.Agent({ rejectUnauthorized: false }),
                 headers: {

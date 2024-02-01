@@ -32,7 +32,7 @@ const ModalCreateCategory = ({
   const EditCategory = async () => {
     try {
       const { data } = await axios.put(
-        `https://localhost:7014/api/Category/${idCategory}`,
+        `https://notehud.somee.com/api/Category/${idCategory}`,
         {
           name: categoryEdit.name,
         },

@@ -25,15 +25,15 @@ const handler = NextAuth(
 
                     try {
                         const res = await axios.post(
-                            "https://localhost:7014/api/Usuarios/authenticate",
+                            "https://notehud.somee.com/api/Usuarios/authenticate",
                             {
                                 nombre: credentials.email,
                                 password: credentials.password,
                             },
-                            {
-                                // Agrega esta opción para aceptar certificados autofirmados
-                                httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-                            }
+                            // {
+                            //     // Agrega esta opción para aceptar certificados autofirmados
+                            //     httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+                            // }
                         );
 
 
@@ -42,9 +42,9 @@ const handler = NextAuth(
 
 
                         const res2 = await axios(
-                            "https://localhost:7014/api/Usuarios/ObtenerUsuario",
+                            "https://notehud.somee.com/api/Usuarios/ObtenerUsuario",
                             {
-                                httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+                                // httpsAgent: new https.Agent({ rejectUnauthorized: false }),
 
                                 headers: {
                                     Authorization: `Bearer ${res.data}`, // Agrega el token JWT en la cabecera de autorización

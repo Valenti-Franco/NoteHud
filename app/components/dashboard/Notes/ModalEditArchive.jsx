@@ -31,7 +31,7 @@ const ModalEditArchive = ({
   const EditArchiveNote = async () => {
     try {
       const { data } = await axios.put(
-        `https://localhost:7014/api/Notes/${idNote}/Archive`,
+        `https://notehud.somee.com/api/Notes/${idNote}/Archive`,
         {},
         {
           headers: {

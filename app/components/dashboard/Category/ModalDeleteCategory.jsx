@@ -32,7 +32,7 @@ const ModalDeleteCategory = ({
   const DeleteCategory = async () => {
     try {
       const { data } = await axios.delete(
-        `https://localhost:7014/api/Category/${idCategory}`,
+        `https://notehud.somee.com/api/Category/${idCategory}`,
         {
           headers: {
             Authorization: `Bearer ${session.user.token}`,

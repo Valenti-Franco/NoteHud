@@ -68,11 +68,14 @@ const NotesComponent = () => {
 
   const getCategories = async () => {
     try {
-      const { data } = await axios.get("https://localhost:7014/api/Category", {
-        headers: {
-          Authorization: `Bearer ${session.user.token}`,
-        },
-      });
+      const { data } = await axios.get(
+        "https://notehud.somee.com/api/Category",
+        {
+          headers: {
+            Authorization: `Bearer ${session.user.token}`,
+          },
+        }
+      );
       setCategories(data);
     } catch (error) {
       console.log(error);
@@ -81,7 +84,7 @@ const NotesComponent = () => {
   const EditArchiveNote = async ({ archiveNote, setarchiveNote }) => {
     try {
       const { data } = await axios.post(
-        `https://localhost:7014/api/Notes/${archiveNote.id}`,
+        `https://notehud.somee.com/api/Notes/${archiveNote.id}`,
         {
           headers: {
             Authorization: `Bearer ${session.user.token}`,
@@ -103,7 +106,7 @@ const NotesComponent = () => {
   const getNotes = async () => {
     try {
       const { data } = await axios.get(
-        "https://localhost:7014/api/Notes/NoArchived",
+        "https://notehud.somee.com/api/Notes/NoArchived",
         {
           headers: {
             Authorization: `Bearer ${session.user.token}`,
@@ -111,7 +114,7 @@ const NotesComponent = () => {
         }
       );
       const dataArchive = await axios.get(
-        "https://localhost:7014/api/Notes/Archived",
+        "https://notehud.somee.com/api/Notes/Archived",
         {
           headers: {
             Authorization: `Bearer ${session.user.token}`,
