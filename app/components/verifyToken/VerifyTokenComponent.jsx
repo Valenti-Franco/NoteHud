@@ -3,6 +3,8 @@ import axios from "axios";
 import { useTheme } from "next-themes";
 import { useParams, redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VerifyTokenComponent = () => {
   const [error, seterror] = useState(false);
@@ -19,9 +21,11 @@ const VerifyTokenComponent = () => {
       );
 
       seterror(false);
+      toast.success("Email verified correctly!");
     } catch (error) {
       seterror(error.message);
       console.log(error.message);
+      toast.error(error.message);
     }
     setloading(false);
   };
@@ -212,6 +216,7 @@ const VerifyTokenComponent = () => {
           </a>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };

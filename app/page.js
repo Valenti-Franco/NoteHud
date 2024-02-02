@@ -1,7 +1,8 @@
 import { Button, Divider } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Home() {
 
   const Svg = () => (
@@ -56,7 +57,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <ToastContainer />
     </div>
   );
 }

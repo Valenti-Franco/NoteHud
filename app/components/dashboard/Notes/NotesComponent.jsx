@@ -32,6 +32,9 @@ import { BiEdit } from "react-icons/bi";
 import ModalCreate from "./ModalCreateNote";
 import ModalEditArchive from "./ModalEditArchive";
 import { GlobalStateContext } from "@/app/SessionContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const NotesComponent = () => {
   const [selected, setSelected] = useState("NoArchive");
 
@@ -160,7 +163,7 @@ const NotesComponent = () => {
           selectedKey={selected}
           onSelectionChange={setSelected}
         >
-          <Tab className="w-full" key="NoArchive" title="No Archive">
+          <Tab className="w-full" key="NoArchive" title="Active">
             <Accordion>
               {notes.map((note) =>
                 Number(note.categoryId) === Number(selectedCategories) ||
@@ -329,6 +332,7 @@ const NotesComponent = () => {
           )}
         </ModalContent>
       </Modal>
+      <ToastContainer />
     </>
   );
 };

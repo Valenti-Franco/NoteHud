@@ -15,6 +15,7 @@ import {
 import { IoAdd } from "react-icons/io5";
 import { useSession } from "next-auth/react";
 import axios from "axios";
+import { toast } from "react-toastify";
 const ModalCreate = ({
   theme,
   createNote,
@@ -55,8 +56,10 @@ const ModalCreate = ({
         category: "",
       });
       getNotes();
+      toast.success("Note created");
     } catch (error) {
       console.log(error);
+      toast.error("Error to create note");
     }
   };
   return (

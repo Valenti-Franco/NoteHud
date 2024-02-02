@@ -10,7 +10,8 @@ import Link from "next/link";
 import { signIn } from "next-auth/react";
 import Router, { useRouter } from "next/navigation";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const FormSingIn = ({ theme }) => {
   const [mail, setMail] = useState("");
   // const [name, setName] = useState("");
@@ -90,6 +91,14 @@ const FormSingIn = ({ theme }) => {
       // setUser({ ...user, error: "", success: data.message });
       setLoading(false);
       setRegister(true);
+      toast.success("Verification token sent!");
+      setUser({
+        ...user,
+        name: "",
+        email: "",
+        password: "",
+        conf_password: "",
+      });
     } catch (error) {
       setLoading(false);
       setUser({
@@ -98,6 +107,7 @@ const FormSingIn = ({ theme }) => {
         error: error.response.data.message,
       });
       console.log(error);
+      //RESETEAR EL FORMULARIO EL USER
     }
   };
   const signInHandler = async () => {
@@ -120,8 +130,10 @@ const FormSingIn = ({ theme }) => {
     setUser({ ...user, success: "", error: "" });
     setLoading(false);
     if (res?.error) {
+      console.log(res);
       setLoading(false);
-      setUser({ ...user, login_error: res?.error });
+      toast.error("User or password incorect");
+      setUser({ ...user, login_error: "User or password incorect" });
     } else {
       return router.push("/");
     }
@@ -278,6 +290,7 @@ const FormSingIn = ({ theme }) => {
           </div>
         </Card>
       </div>
+      <ToastContainer />
     </div>
   );
 };

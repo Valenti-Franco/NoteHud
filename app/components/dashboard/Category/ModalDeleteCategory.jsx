@@ -16,6 +16,7 @@ import {
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 const ModalDeleteCategory = ({
   theme,
   //   createNote,
@@ -39,12 +40,12 @@ const ModalDeleteCategory = ({
           },
         }
       );
-      setcategoryDelete({
-        name: "",
-      });
+      setcategoryDelete("");
+      toast.success("Category deleted");
       getCategories();
     } catch (error) {
       console.log(error);
+      toast.error("Error to delete category");
     }
   };
   return (

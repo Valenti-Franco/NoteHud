@@ -17,6 +17,7 @@ import { IoAdd } from "react-icons/io5";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import { MdDeleteSweep } from "react-icons/md";
+import { ToastContainer, toast } from "react-toastify";
 const ModalEditArchive = ({
   theme,
   getNotes,
@@ -40,8 +41,10 @@ const ModalEditArchive = ({
         }
       );
       getNotes();
+      toast.success("Note cahnge state to archive");
     } catch (error) {
       console.log(error);
+      toast.error("Error to change state to archive");
     }
   };
 
@@ -54,7 +57,7 @@ const ModalEditArchive = ({
         description="Create a new file"
         startContent={<MdDeleteSweep />}
       >
-        Archive Note
+        Change state to archive
       </Button>
 
       <Modal

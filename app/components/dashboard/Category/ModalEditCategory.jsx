@@ -16,6 +16,7 @@ import {
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import { MdEdit } from "react-icons/md";
+import { toast } from "react-toastify";
 const ModalCreateCategory = ({
   theme,
   //   createNote,
@@ -42,11 +43,11 @@ const ModalCreateCategory = ({
           },
         }
       );
-      setcategoryEdit({
-        name: "",
-      });
+      setcategoryEdit("");
+      toast.success("Category edited");
       getCategories();
     } catch (error) {
+      toast.error("Error to edit category");
       console.log(error);
     }
   };
